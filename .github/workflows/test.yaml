@@ -1,5 +1,5 @@
 name: test
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -8,12 +8,29 @@ on:
       - main
 jobs:
   test:
-      name: Test
-      runs-on: macos-latest
-      steps:
-        - name: Install chezmoi
-          run: brew install chezmoi
-        - name: Initialize chezmoi
-          run: chezmoi init https://github.com/shamaton/dotfiles.git
-        - name: Apply chezmoi
-          run: chezmoi apply
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install chezmoi (macOS/Linux)
+        if: runner.os != 'Windows'
+        run: |
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install chezmoi (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          iex "&{$(irm 'https://get.chezmoi.io/ps1')} -BinDir $env:USERPROFILE\.local\bin"
+          "$env:USERPROFILE\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Apply chezmoi
+        shell: bash
+        run: chezmoi apply --source=$GITHUB_WORKSPACE

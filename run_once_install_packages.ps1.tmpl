@@ -1,0 +1,26 @@
+{{- if eq .chezmoi.os "windows" -}}
+# Install Scoop
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+  Write-Host "Installing Scoop..."
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+  Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
+
+# Add extras bucket (required for btop)
+scoop bucket add extras 2>$null
+
+# Install packages
+Write-Host "Installing packages via Scoop..."
+scoop install neovim bat eza chezmoi
+
+# btop: scoop manifest has a known bug creating btop.conf (already exists after extraction)
+# Install and suppress the non-fatal exit code
+Write-Host "Installing btop..."
+scoop install btop
+if ($LASTEXITCODE -ne 0) {
+  Write-Warning "btop installation completed with warnings (known scoop manifest issue)."
+}
+
+Write-Host "Setup complete."
+exit 0
+{{- end }}

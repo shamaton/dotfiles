@@ -1,0 +1,2 @@
+{{ if eq .chezmoi.os "windows" }}install_packages.sh{{ end }}
+{{ if ne .chezmoi.os "windows" }}install_packages.ps1{{ end }}
