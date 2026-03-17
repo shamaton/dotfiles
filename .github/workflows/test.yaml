@@ -18,6 +18,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Install dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          apt update
+          apt install -y curl gcc git zsh
+
       - name: Install chezmoi (macOS/Linux)
         if: runner.os != 'Windows'
         run: |
