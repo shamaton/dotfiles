@@ -15,7 +15,7 @@ fi
 
 # Install packages
 echo "Installing packages via Homebrew..."
-brew install neovim bat eza btop chezmoi direnv asdf
+brew install neovim bat eza btop chezmoi direnv asdf zellij
 
 # Remove chezmoi binary downloaded by the one-line installer
 if [[ -f "$HOME/chezmoi" ]]; then
@@ -72,7 +72,7 @@ fi
 
 # Install packages
 echo "Installing packages via Homebrew..."
-brew install neovim bat eza btop chezmoi direnv asdf
+brew install neovim bat eza btop chezmoi direnv asdf zellij
 
 # Remove chezmoi binary downloaded by the one-line installer
 if [[ -f "$HOME/chezmoi" ]]; then
@@ -110,6 +110,25 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]; then
 fi
 
 echo "Setup complete."
+
+# デフォルトシェルを zsh に変更して起動
+ZSH_PATH="$(command -v zsh)"
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+  echo "Setting default shell to zsh..."
+  if ! grep -qF "$ZSH_PATH" /etc/shells; then
+    if [[ "$EUID" -eq 0 ]]; then
+      echo "$ZSH_PATH" >> /etc/shells
+    else
+      echo "$ZSH_PATH" | sudo tee -a /etc/shells
+    fi
+  fi
+  if [[ "$EUID" -eq 0 ]]; then
+    chsh -s "$ZSH_PATH"
+  else
+    sudo chsh -s "$ZSH_PATH" "$USER"
+  fi
+fi
+exec "$ZSH_PATH" -l
 
 {{- else if eq .chezmoi.os "windows" -}}
 echo "Windows: install packages is not yet implemented."
