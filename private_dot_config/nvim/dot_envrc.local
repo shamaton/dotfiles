@@ -1,6 +1,0 @@
-source_up
-
-export GIT_AUTHOR_NAME="shamaton"
-export GIT_AUTHOR_EMAIL="shamaton77@gmail.com"
-export GIT_COMMITTER_NAME="shamaton"
-export GIT_COMMITTER_EMAIL="shamaton77@gmail.com"

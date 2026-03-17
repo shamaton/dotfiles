@@ -1,2 +1,0 @@
-# append or override by .envrc.local
-source_env_if_exists .envrc.local

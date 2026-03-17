@@ -516,6 +516,9 @@ require('lazy').setup({
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
+
+      -- JSON/YAML schema store (used by yamlls)
+      'b0o/SchemaStore.nvim',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -653,6 +656,21 @@ require('lazy').setup({
             },
           },
         },
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                -- Use SchemaStore.nvim instead of the built-in schema store
+                enable = false,
+                url = '',
+              },
+              schemas = require('schemastore').yaml.schemas(),
+              validate = true,
+              completion = true,
+              hover = true,
+            },
+          },
+        },
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
@@ -674,6 +692,8 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'rust-analyzer', -- Rust Language server
         'terraform-ls', -- Terraform Language server
+        'yaml-language-server', -- YAML Language server
+        'actionlint', -- GitHub Actions linter
         -- You can add other tools here that you want Mason to install
       }
 
@@ -913,7 +933,7 @@ require('lazy').setup({
     lazy = false,
     build = ':TSUpdate',
     config = function()
-      local filetypes = { 'bash', 'c', 'diff', 'go', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      local filetypes = { 'bash', 'c', 'diff', 'go', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'yaml' }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
