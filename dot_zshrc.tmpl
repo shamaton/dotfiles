@@ -61,8 +61,12 @@ setopt EXTENDED_HISTORY     # タイムスタンプ付きで記録
 setopt AUTO_CD  # ディレクトリ名だけで cd できる
 setopt CORRECT  # コマンドのタイポを修正提案
 
-# --- エイリアス ---
-source $HOME/.zsh_aliases
+# --- 追加設定の読み込み ---
+if [[ -d "$HOME/.config/zsh/sources" ]]; then
+  for f in "$HOME/.config/zsh/sources/"*; do
+    [[ -f "$f" ]] && source "$f"
+  done
+fi
 
 # --- キーバインド (history-substring-search) ---
 bindkey '^[[A' history-substring-search-up
