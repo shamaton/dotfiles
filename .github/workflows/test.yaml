@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies (Linux)
         if: runner.os == 'Linux'
         run: |
-          apt update
-          apt install -y curl gcc git zsh
+          sudo apt-get update
+          sudo apt-get install -y curl gcc git zsh
 
       - name: Install chezmoi (macOS/Linux)
         if: runner.os != 'Windows'
