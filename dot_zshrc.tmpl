@@ -62,10 +62,8 @@ setopt AUTO_CD  # ディレクトリ名だけで cd できる
 setopt CORRECT  # コマンドのタイポを修正提案
 
 # --- 追加設定の読み込み ---
-if [[ -d "$HOME/.config/my-zsh/sources" ]]; then
-  for f in "$HOME/.config/my-zsh/sources/"*.zsh; do
-    [[ -f "$f" ]] && source "$f"
-  done
+if [[ -f "$HOME/.config/my-zsh/entry.zsh" ]]; then
+  source "$HOME/.config/my-zsh/entry.zsh"
 fi
 
 # --- キーバインド (history-substring-search) ---

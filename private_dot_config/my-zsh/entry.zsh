@@ -1,4 +1,3 @@
-
 # export GOPATH="$HOME/works/go"
 # export PATH="$PATH:$GOPATH/bin"
 # export PATH="$PATH:$(go env GOPATH)/bin"
@@ -9,8 +8,6 @@ alias cat='bat --color=always'
 alias top='btop'
 alias vim=nvim
 alias zellij='TERM=xterm-256color zellij'
-
-
 
 eval "$(direnv hook zsh)"
 
