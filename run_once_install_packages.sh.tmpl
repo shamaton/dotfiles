@@ -52,6 +52,11 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]; then
   git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_CUSTOM/plugins/zsh-history-substring-search"
 fi
 
+if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-abbr" ]]; then
+  echo "Installing zsh-abbr..."
+  git clone --recurse-submodules --single-branch --branch v6 --depth 1 https://github.com/olets/zsh-abbr "$ZSH_CUSTOM/plugins/zsh-abbr"
+fi
+
 echo "Setup complete."
 {{- else if eq .chezmoi.os "linux" -}}
 #!/bin/bash
@@ -107,6 +112,11 @@ fi
 if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]; then
   echo "Installing zsh-history-substring-search..."
   git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_CUSTOM/plugins/zsh-history-substring-search"
+fi
+
+if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-abbr" ]]; then
+  echo "Installing zsh-abbr..."
+  git clone --recurse-submodules --single-branch --branch v6 --depth 1 https://github.com/olets/zsh-abbr "$ZSH_CUSTOM/plugins/zsh-abbr"
 fi
 
 echo "Setup complete."
