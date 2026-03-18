@@ -14,8 +14,6 @@ alias zellij='TERM=xterm-256color zellij'
 
 eval "$(direnv hook zsh)"
 
-if [[ -d "$HOME/.config/company/zsh" ]]; then
-  for f in "$HOME/.config/company/zsh"/*; do
-    [[ -f "$f" ]] && source "$f"
-  done
+if [[ -f "$HOME/.config/company/zsh/entry.zsh" ]]; then
+  source "$HOME/.config/company/zsh/entry.zsh"
 fi
