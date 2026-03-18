@@ -63,7 +63,7 @@ setopt CORRECT  # コマンドのタイポを修正提案
 
 # --- 追加設定の読み込み ---
 if [[ -d "$HOME/.config/zsh/sources" ]]; then
-  for f in "$HOME/.config/zsh/sources/"*; do
+  for f in "$HOME/.config/zsh/sources/"*.zsh; do
     [[ -f "$f" ]] && source "$f"
   done
 fi
