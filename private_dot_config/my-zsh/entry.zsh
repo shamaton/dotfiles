@@ -3,6 +3,9 @@
 # export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/my-zsh/abbreviations"
+abbr load
+
 alias ls='eza --icons --color=always --group-directories-first'
 alias cat='bat --color=always'
 alias top='btop'
