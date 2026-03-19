@@ -1,1 +1,1 @@
-abbr catplain='cat --color=never --plain'
+abbr catp='cat --color=never --plain'
