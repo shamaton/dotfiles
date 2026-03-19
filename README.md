@@ -5,8 +5,9 @@
 ### macOS
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
-chezmoi apply --source=<このリポジトリのパス>
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME"
+$HOME/chezmoi init git@github.com:shamaton/dotfiles.git
+$HOME/chezmoi apply
 ```
 
 ### Linux

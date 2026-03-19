@@ -17,6 +17,10 @@ fi
 echo "Installing packages via Homebrew..."
 brew install neovim bat eza btop chezmoi direnv zellij mise
 
+# Install mise-managed tools
+echo "Installing mise-managed tools..."
+mise install
+
 # Remove chezmoi binary downloaded by the one-line installer
 if [[ -f "$HOME/chezmoi" ]]; then
   echo "Removing $HOME/chezmoi..."
@@ -78,6 +82,10 @@ fi
 # Install packages
 echo "Installing packages via Homebrew..."
 brew install neovim bat eza btop chezmoi direnv zellij mise
+
+# Install mise-managed tools
+echo "Installing mise-managed tools..."
+mise install
 
 # Remove chezmoi binary downloaded by the one-line installer
 if [[ -f "$HOME/chezmoi" ]]; then
