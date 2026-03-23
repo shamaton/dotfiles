@@ -1,7 +1,6 @@
-# export GOPATH="$HOME/works/go"
-# export PATH="$PATH:$GOPATH/bin"
-# export PATH="$PATH:$(go env GOPATH)/bin"
-# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export GOPATH="$HOME/works/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/my-zsh/abbreviations"
 abbr load
