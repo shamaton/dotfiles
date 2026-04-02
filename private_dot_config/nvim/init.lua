@@ -459,13 +459,17 @@ require('lazy').setup({
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = buf,
               callback = function()
-                vim.lsp.buf.code_action {
-                  context = {
-                    only = { 'source.organizeImports' },
-                    diagnostics = {},
-                  },
-                  apply = true,
-                }
+                local params = vim.lsp.util.make_range_params()
+                params.context = { only = { 'source.organizeImports' }, diagnostics = {} }
+                local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
+                for cid, res in pairs(result or {}) do
+                  for _, r in pairs(res.result or {}) do
+                    if r.edit then
+                      local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
+                      vim.lsp.util.apply_workspace_edit(r.edit, enc)
+                    end
+                  end
+                end
               end,
             })
           end
@@ -847,6 +851,26 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        menu = {
+          draw = {
+            columns = {
+              { 'label', 'label_description', gap = 1 },
+              { 'kind_icon', 'kind', gap = 1 },
+            },
+            components = {
+              label_description = {
+                text = function(ctx)
+                  local detail = ctx.item.detail
+                  if detail and detail ~= '' then
+                    return detail
+                  end
+                  return (ctx.item.label_details and ctx.item.label_details.description) or ''
+                end,
+                highlight = 'BlinkCmpLabelDescription',
+              },
+            },
+          },
+        },
       },
 
       sources = {
