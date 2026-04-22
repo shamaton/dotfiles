@@ -1,0 +1,24 @@
+# 画面分割したときにpathが引き継がれる
+window-inherit-working-directory = true
+
+# 起動時に前の作業フォルダを引き継ぐ
+window-save-state = always
+
+# shift+enterを改行扱いする
+keybind = shift+enter=text:\x1b\r
+
+# その他
+background = #0f172a
+background-opacity = 0.85
+background-blur-radius = 20
+theme = "Github Dark"
+font-family = "HackGen Console NF"
+font-size = 12
+macos-titlebar-style = tabs
+
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
+
+# 非アクティブなウインドウを薄くしない
+unfocused-split-opacity = 1
