@@ -6,7 +6,7 @@ export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/my-zsh/abbreviations"
 abbr load
 
 alias ls='eza --icons --color=always --group-directories-first'
-alias cat='bat --color=always'
+alias ccat='bat --color=always'
 alias top='btop'
 alias vim=nvim
 
