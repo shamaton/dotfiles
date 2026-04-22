@@ -73,3 +73,27 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# if vcs is heavily, set disable vcs segment in p10k.
+# For example, when you work on a large git repository over SSH, it can cause significant performance issues.
+# In such cases, you can disable the vcs segment in Powerlevel10k to improve performance.
+function _p10k_update_vcs_mode() {
+  export P10K_DISABLE_VCS=0
+
+  [[ -n "$SSH_CONNECTION" ]] || return 0
+
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || return 0
+
+  case "$repo_root" in
+    "C:/works/Siglo/sdk")
+      export P10K_DISABLE_VCS=1
+      ;;
+  esac
+
+  source ~/.p10k.zsh
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _p10k_update_vcs_mode
+_p10k_update_vcs_mode
