@@ -1,8 +1,10 @@
-# --- Homebrew ---
+# --- Homebrew / Scoop PATH ---
 {{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- else if eq .chezmoi.os "linux" }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- else if eq .chezmoi.os "windows" }}
+export PATH="$HOME/scoop/shims:$PATH"
 {{- end }}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

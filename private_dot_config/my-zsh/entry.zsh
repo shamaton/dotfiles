@@ -9,7 +9,6 @@ alias ls='eza --icons --color=always --group-directories-first'
 alias cat='bat --color=always'
 alias top='btop'
 alias vim=nvim
-alias zellij='TERM=xterm-256color zellij'
 
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
