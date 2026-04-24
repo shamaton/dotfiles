@@ -644,6 +644,8 @@ require('lazy').setup({
                 unusedparams = true,
                 nilness = true,
                 shadow = true,
+                fillreturns = true,
+                nonewvars = true,
               },
               staticcheck = true,
             },
