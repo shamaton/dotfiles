@@ -11,7 +11,7 @@ alias top='btop'
 alias vim=nvim
 
 eval "$(direnv hook zsh)"
-eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"
 
 if [[ -f "$HOME/.config/company/zsh/entry.zsh" ]]; then
   source "$HOME/.config/company/zsh/entry.zsh"
