@@ -39,4 +39,6 @@ jobs:
 
       - name: Apply chezmoi
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: chezmoi apply --source=$GITHUB_WORKSPACE
