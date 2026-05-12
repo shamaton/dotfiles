@@ -85,6 +85,9 @@ brew install neovim bat eza btop chezmoi direnv zellij mise gnupg fzf
 
 # Import Node.js release team GPG keys for mise signature verification
 echo "Importing Node.js GPG keys..."
+# Kill any stale gpg-agent/keyboxd/dirmngr from a previously-installed (older)
+# gnupg so the newly-installed brew gnupg starts its own agents and keyrings.
+gpgconf --kill all 2>/dev/null || true
 NODE_KEYS_BASE="https://raw.githubusercontent.com/nodejs/release-keys/main"
 curl -fsSL "${NODE_KEYS_BASE}/keys.list" | while read -r KEY; do
   [[ -z "$KEY" ]] && continue
