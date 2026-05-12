@@ -3,3 +3,5 @@ abbr catp='cat --color=never --plain'
 
 abbr gst='git status'
 abbr gdc='git diff --cached'
+
+abbr p="cd $HOME/works/github.com/"
