@@ -19,7 +19,7 @@ macos-titlebar-style = tabs
 custom-shader = shaders/cursor_warp.glsl
 custom-shader = shaders/ripple_cursor.glsl
 #custom-shader = shaders/cursor_blaze.glsl
-custom-shader-animation = always
+#custom-shader-animation = always
 
 # 非アクティブなウインドウを薄くしない
 unfocused-split-opacity = 1
