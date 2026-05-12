@@ -23,3 +23,6 @@ custom-shader-animation = always
 
 # 非アクティブなウインドウを薄くしない
 unfocused-split-opacity = 1
+
+# Option キーを Alt (Meta) として送信する (fzf の Alt-C などを有効にするため)
+macos-option-as-alt = true
