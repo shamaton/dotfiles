@@ -13,6 +13,7 @@ alias top='btop'
 alias vim=nvim
 
 source "${HOME}/.config/my-zsh/fzf.zsh"
+source "${HOME}/.config/my-zsh/cdp.zsh"
 
 if [[ -f "$HOME/.config/company/zsh/entry.zsh" ]]; then
   source "$HOME/.config/company/zsh/entry.zsh"
