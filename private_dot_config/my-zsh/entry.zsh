@@ -1,8 +1,6 @@
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh --shims)"
 
-export GOPATH="$HOME/works/go"
-export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export GHQ_ROOT="$HOME/works"
