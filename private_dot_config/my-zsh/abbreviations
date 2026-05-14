@@ -1,7 +1,10 @@
 abbr catp='cat --color=never --plain'
 
 
-abbr gst='git status'
+abbr gs='git status'
+abbr ga='git add'
+abbr gau='git add -u'
+abbr gaa='git add -A'
 abbr gdc='git diff --cached'
 
 abbr p="cd $HOME/works/github.com/"
