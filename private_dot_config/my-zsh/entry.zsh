@@ -2,6 +2,7 @@ eval "$(direnv hook zsh)"
 eval "$(mise activate zsh --shims)"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 export GHQ_ROOT="$HOME/works"
 export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/my-zsh/abbreviations"
