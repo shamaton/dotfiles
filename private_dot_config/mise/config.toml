@@ -1,4 +1,4 @@
 [tools]
 ghq = "latest"
 go = "1.26.5"
-node = "26"
+node = "26.1.0"
