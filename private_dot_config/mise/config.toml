@@ -1,6 +1,7 @@
 [tools]
 ghq = "latest"
 go = "latest"
+node = "latest"
 chezmoi = "latest"
 neovim = "latest"
 bat = "latest"
