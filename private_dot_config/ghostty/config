@@ -26,3 +26,6 @@ unfocused-split-opacity = 1
 
 # Option キーを Alt (Meta) として送信する (fzf の Alt-C などを有効にするため)
 macos-option-as-alt = true
+
+# SSH 接続先に terminfo を自動インストールし、失敗時は TERM=xterm-256color にフォールバックする
+shell-integration-features = ssh-env,ssh-terminfo
