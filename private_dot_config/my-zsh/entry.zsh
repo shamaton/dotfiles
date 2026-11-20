@@ -1,5 +1,5 @@
-eval "$(direnv hook zsh)"
 eval "$(mise activate zsh --shims)"
+eval "$(direnv hook zsh)"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.cargo/bin"

@@ -1,4 +1,11 @@
 [tools]
 ghq = "latest"
-go = "1.26.5"
-node = "26.1.0"
+go = "latest"
+node = "latest"
+chezmoi = "latest"
+neovim = "latest"
+bat = "latest"
+direnv = "latest"
+fzf = "latest"
+pinact = "latest"
+gh = "latest"

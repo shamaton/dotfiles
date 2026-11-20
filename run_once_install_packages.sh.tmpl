@@ -15,7 +15,14 @@ fi
 
 # Install packages
 echo "Installing packages via Homebrew..."
-brew install neovim bat eza btop chezmoi direnv mise gnupg fzf pinact gh
+brew install eza btop chezmoi gnupg
+
+# Install mise via official installer
+if [[ ! -x "$HOME/.local/bin/mise" ]]; then
+  echo "Installing mise..."
+  curl -fsSL https://mise.run | sh
+fi
+export PATH="$HOME/.local/bin:$PATH"
 
 # Install mise-managed tools
 echo "Installing mise-managed tools..."
@@ -81,7 +88,14 @@ fi
 
 # Install packages
 echo "Installing packages via Homebrew..."
-brew install neovim bat eza btop chezmoi direnv mise gnupg fzf pinact gh
+brew install eza btop chezmoi gnupg
+
+# Install mise via official installer
+if [[ ! -x "$HOME/.local/bin/mise" ]]; then
+  echo "Installing mise..."
+  curl -fsSL https://mise.run | sh
+fi
+export PATH="$HOME/.local/bin:$PATH"
 
 # Import Node.js release team GPG keys for mise signature verification
 echo "Importing Node.js GPG keys..."
