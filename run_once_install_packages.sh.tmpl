@@ -26,7 +26,7 @@ main() {
 
   if [[ "$OS" == "linux" ]]; then
     set_default_shell_to_zsh
-    exec "$(command -v zsh)" -l
+    echo "Run 'exec zsh -l' or re-login to start zsh."
   fi
 }
 
