@@ -1,0 +1,40 @@
+[user]
+        useConfigOnly = true
+[color]
+        ui = true
+[alias]
+        b = branch
+        st = status
+        sts = status Assets/Scripts/
+        stc = status Assets/Scenes/
+        cm = commit
+        co = checkout
+        # Untracked filesを表示せず，not stagedと，stagedだけの状態を出力する
+        stt = status -uno
+        a   = add .
+        aa  = add -A
+        as = add Assets/Scripts/
+        ac = add Assets/Scenes/
+        r = reset
+        # 単語レベルでの差分を色付きで
+        difwd   = diff --word-diff
+        difwdcached  = diff --word-diff --cached
+        dc        = diff -w --cached
+        difcached = diff -w --cached
+        chkout    = checkout
+        dt = difftool
+[filter "lfs"]
+        required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+[core]
+#	pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
+[pull]
+        rebase = false
+[pager]
+        branch = false
+[include]
+        path = ~/.gitconfig.local
+[includeIf "gitdir:~/works/github.com/"]
+        path = ~/.gitconfig-github
