@@ -1,12 +1,17 @@
 {
-  "agent_buffer_font_size": 12.0,
-  "agent_ui_font_size": 14.0,
+  "agent_buffer_font_size": 11.0,
+  "agent_ui_font_size": 11.0,
   "tabs": {
     "file_icons": true
   },
   "agent": {
+    "thinking_display": "always_expanded",
+    "default_profile": "write",
     "tool_permissions": {
       "tools": {
+        "skill": {
+          "default": "allow"
+        },
         "fetch": {
           "default": "allow"
         },
@@ -21,7 +26,7 @@
   "show_whitespaces": "trailing",
   "soft_wrap": "editor_width",
   "terminal": {
-    "font_size": 12.0,
+    "font_size": 11.0,
     "dock": "right"
   },
   "project_panel": {
@@ -53,7 +58,7 @@
   ],
   "base_keymap": "VSCode",
   "ui_font_size": 12.0,
-  "buffer_font_size": 12.0,
+  "buffer_font_size": 11.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
